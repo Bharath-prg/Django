@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alumni Results</title>
+</head>
+<body>
+
+<h2>Alumni List</h2>
+
+<hr>
+
+<table border="1" cellpadding="8">
+
+    <tr>
+        <th>Name</th>
+        <th>USN</th>
+        <th>Passing Year</th>
+        <th>Company</th>
+    </tr>
+
+    {% for a in alumni %}
+    <tr>
+        <td>{{a.name}}</td>
+        <td>{{a.usn}}</td>
+        <td>{{a.passing_year}}</td>
+        <td>{{a.company}}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="4">No alumni found</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<br>
+
+<a href="/">Back</a>
+
+</body>
+</html>

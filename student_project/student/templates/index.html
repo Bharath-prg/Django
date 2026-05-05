@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Add Student</h2>
+
+
+{% if error %}
+    <p style="color:red;"><b>{{ error }}</b></p>
+{% endif %}
+
+<form method="post" action="/add/">
+    {% csrf_token %}
+
+    Name: <input type="text" name="name" required><br><br>
+    USN: <input type="text" name="usn" required><br><br>
+
+    Semester:<input type="number" name="semester" min="1" max="8" required> <br><br>
+
+    Fee Paid:
+    <input type="radio" name="fee_paid" value="yes" required>Yes
+    <input type="radio" name="fee_paid" value="no">No
+    <br><br>
+
+    <button type="submit">Add</button>
+</form>
+
+<hr>
+
+<h2>Student List</h2>
+
+{% for s in students %}
+    <p>
+        {{s.name}} | {{s.usn}} | Sem {{s.semester}} |
+        {% if s.fee_paid %}
+            <b style="color:green;">Paid</b>
+        {% else %}
+            <b style="color:red;">Unpaid</b>
+        {% endif %}
+    </p>
+{% empty %}
+    <p>No students</p>
+{% endfor %}
+
+<hr>
+
+<form method="post" action="/delete/">
+    {% csrf_token %}
+    <button type="submit">Delete All Unpaid Students</button>
+</form>
+
+</body>
+</html>

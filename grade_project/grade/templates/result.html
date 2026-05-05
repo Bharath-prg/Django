@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Updated Students</title>
+</head>
+<body>
+
+<h2>Updated Student Details</h2>
+
+<hr>
+
+<table border="1" cellpadding="8">
+
+    <tr>
+        <th>Name</th>
+        <th>USN</th>
+        <th>Department</th>
+        <th>Grade</th>
+    </tr>
+
+    {% for s in students %}
+    <tr>
+        <td>{{s.name}}</td>
+        <td>{{s.usn}}</td>
+        <td>{{s.dept}}</td>
+        <td>{{s.grade}}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="4">No student found</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<br>
+
+<a href="/">Back</a>
+
+</body>
+</html>

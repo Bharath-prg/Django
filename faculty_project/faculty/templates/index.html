@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Faculty Management</title>
+</head>
+<body>
+
+<h2>Faculty Management System</h2>
+
+<hr>
+
+<h3>Add Faculty Details</h3>
+
+<form method="post" action="/add/">
+    {% csrf_token %}
+
+        <label>ID:</label><br>
+        <input type="text" name="fid" required>
+        <br><br>
+  
+        <label>Name:</label><br>
+        <input type="text" name="name" required>
+        <br><br>
+  
+        <label>Branch:</label><br>
+        <input type="text" name="branch" required>
+        <br><br>
+
+        <label>Title:</label><br>
+        <input type="text" name="title" required>
+        <br><br>
+
+        <button type="submit">Add Faculty</button>
+   
+</form>
+
+<hr>
+
+<h3>View Faculty</h3>
+
+<p>
+    <a href="/cse/">View CSE Professors</a>
+</p>
+
+</body>
+</html>

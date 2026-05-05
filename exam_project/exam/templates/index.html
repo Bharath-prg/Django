@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exam Management</title>
+</head>
+<body>
+
+<h2>Exam Management System</h2>
+
+<hr>
+
+<h3>Add Student Details</h3>
+
+<form method="post" action="/add/">
+    {% csrf_token %}
+
+        Name: <br>
+        <input type="text" name="name" required>
+        <br><br>
+        
+        USN: <br>
+        <input type="text" name="usn" required>
+        <br><br>
+  
+        Grade: <br>
+        <input type="text" name="grade" required>
+        <br><br>
+
+        <button type="submit">Add Student</button>
+
+    
+</form>
+
+<hr>
+
+<h3>View Students</h3>
+
+<p>
+    <a href="/o/">View Students with Grade O</a>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HR Management System</title>
+</head>
+<body>
+
+    <h2>HR Management System</h2>
+
+    <hr>
+
+    <h3>Add Employee Details</h3>
+
+    <form method="post" action="/add/">
+        {% csrf_token %}
+
+            <label>Name:</label><br>
+            <input type="text" name="name" required>
+            <br><br>
+        
+            <label>Email:</label><br>
+            <input type="email" name="email" required>
+            <br><br>
+        
+            <label>Phone:</label><br>
+            <input type="text" name="phone" required>
+            <br><br>
+        
+            <label>Date of Hiring:</label><br>
+            <input type="date" name="date" required>
+            <br><br>
+
+            <label>Job Title:</label><br>
+            <input type="text" name="job" required>
+            <br><br>
+        
+            <label>Salary:</label><br>
+            <input type="number" name="salary" required>
+            <br><br>
+
+            <button type="submit">Add Employee</button>
+    </form>
+
+    <hr>
+
+    <h3>View Employees</h3>
+    <a href="/high/">View Employees with Salary > 50000</a>
+    
+
+</body>
+</html>

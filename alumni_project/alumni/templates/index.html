@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alumni Management</title>
+</head>
+<body>
+
+<h2>Alumni Management System</h2>
+
+<hr>
+
+<h3>Add Alumni Details</h3>
+
+<form method="post" action="/add/">
+    {% csrf_token %}
+
+    <p>
+        <label>Name:</label><br>
+        <input type="text" name="name" required>
+    </p>
+
+    <p>
+        <label>USN:</label><br>
+        <input type="text" name="usn" required>
+    </p>
+
+    <p>
+        <label>Passing Year:</label><br>
+        <input type="number" name="year" required>
+    </p>
+
+    <p>
+        <label>Company:</label><br>
+        <input type="text" name="company" required>
+    </p>
+
+    <p>
+        <button type="submit">Add Alumni</button>
+    </p>
+
+</form>
+
+<hr>
+
+<h3>Search Alumni by Year</h3>
+
+<form method="post" action="/filter/">
+    {% csrf_token %}
+
+    <p>
+        <label>Enter Year:</label><br>
+        <input type="number" name="year" required>
+    </p>
+
+    <p>
+        <button type="submit">Search</button>
+    </p>
+
+</form>
+
+</body>
+</html>

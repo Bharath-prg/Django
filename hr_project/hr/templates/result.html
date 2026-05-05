@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employees</title>
+</head>
+<body>
+
+<h2>Employees with Salary > 50000</h2>
+
+<hr>
+
+<table border="1" cellpadding="8">
+
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Date</th>
+        <th>Job</th>
+        <th>Salary</th>
+    </tr>
+
+    {% for e in emp %}
+    <tr>
+        <td>{{e.name}}</td>
+        <td>{{e.email}}</td>
+        <td>{{e.phone}}</td>
+        <td>{{e.date}}</td>
+        <td>{{e.job}}</td>
+        <td>{{e.salary}}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="6">No employees found</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<br>
+<a href="/">Back</a>
+
+</body>
+</html>

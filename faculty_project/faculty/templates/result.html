@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSE Professors</title>
+</head>
+<body>
+
+<h2>CSE Professors</h2>
+
+<hr>
+
+<table border="1" cellpadding="8">
+
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Branch</th>
+        <th>Title</th>
+    </tr>
+
+    {% for f in faculty %}
+    <tr>
+        <td>{{f.fid}}</td>
+        <td>{{f.name}}</td>
+        <td>{{f.branch}}</td>
+        <td>{{f.title}}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="4">No faculty found</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<br>
+
+<a href="/">Back</a>
+
+</body>
+</html>

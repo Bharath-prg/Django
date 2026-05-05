@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Student Grade Management System</h2>
+
+<hr>
+
+<h3>Add Student Details</h3>
+
+<form method="post" action="/add/">
+    {% csrf_token %}
+
+        Name:<br>
+        <input type="text" name="name" required>
+        <br><br>
+    
+        USN:<br>
+        <input type="text" name="usn" required>
+        <br><br>
+    
+        Department:<br>
+        <input type="text" name="dept" required>
+        <br><br>
+    
+        Grade:<br>
+        <input type="text" name="grade" required>
+        <br><br>
+
+        <button type="submit">Add Student</button>
+</form>
+
+<hr>
+
+<h3>View All Students</h3>
+
+    <a href="/view/">View Student List</a>
+
+<hr>
+
+<h3>Update Student Grade</h3>
+
+<form method="post" action="/update/">
+    {% csrf_token %}
+
+        Enter Name : <br>
+        <input type="text" name="name" required><br><br>
+   
+        New Grade : <br>
+        <input type="text" name="grade" required><br><br>
+  
+        <button type="submit">Update Grade</button>
+    
+</form>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amazon Placed Students</title>
+</head>
+<body>
+
+<h2>Students Placed in Amazon</h2>
+
+<hr>
+
+<table border="1" cellpadding="8">
+
+    <tr>
+        <th>USN</th>
+        <th>Name</th>
+        <th>Company</th>
+    </tr>
+
+    {% for s in students %}
+    <tr>
+        <td>{{s.usn}}</td>
+        <td>{{s.name}}</td>
+        <td>{{s.company}}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="3">No students in Amazon</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<br>
+
+<a href="/">Back</a>
+
+</body>
+</html>
