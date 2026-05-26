@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Student Details Form</h1>
+
+    <br>
+    <form action="/" method="post">
+        {% csrf_token %}
+        Name : <input type="text" name="name" id="">
+        <br><br>
+        Usn : <input type="text" name="usn">
+        <br><br>
+        Sub_code : <input type="text" name="sub_code" id="">
+        <br><br>
+        cie : <input type="number" name="cie" min="0" max="50">
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <br><br>
+    <a href="/lowcie/">Students with cie less than 20</a>
+</body>
+</html>

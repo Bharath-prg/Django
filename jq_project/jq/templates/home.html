@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Feedback Form</title>
+
+    <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+
+    <style>
+
+        input:focus, textarea:focus {
+            border: 3px solid rgb(239, 6, 84);
+        }
+  
+        .entry:nth-of-type(odd){
+            background-color: lightblue;
+        }
+
+        .entry:nth-of-type(even){
+            background-color: rgb(11, 239, 53);
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h2>Feedback Form</h2>
+
+    <form id="form">
+        {% csrf_token %}
+
+        Name: <input type="text" id="name"> <br><br>
+        Feedback: <textarea id="comments"></textarea> <br><br>
+
+        <button type="submit"> Submit </button>
+    </form>
+
+    <hr>
+
+    <div id="list"></div>
+
+    <script>
+
+        $("#form").submit(function(e){
+
+            e.preventDefault();
+
+            $.ajax({
+                url:'/add_feedback/',
+                type:'POST',
+                data:{
+                    'name': $('#name').val(),
+                    'comments': $('#comments').val(),
+                    'csrfmiddlewaretoken':$('input[name=csrfmiddlewaretoken]').val(),
+                },
+                success:function(res){
+
+                    $("#list").append(
+
+                        "<div class='entry'>" +
+                         
+                        res.name +
+                        ": " +
+                        res.comments +
+                        "</div><hr>"
+
+                    );
+                
+
+                    $("#form")[0].reset();
+                }
+            });
+        });
+
+    </script>
+
+</body>
+</html>

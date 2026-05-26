@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Student Details</h1>
+
+    {% if error %}
+        <p style="color: red;">{{ error.msg }}</p>
+    {% endif %}
+
+    <form action="/add_student/" method="post">
+        {% csrf_token %}
+        Name: <input type="text" name="name" required><br><br>
+        Usn: <input type="text" name="usn" required><br> <br>
+        sem: <input type="number" name="sem" min="1" max="8" required><br> <br>
+        Fee: <input type="radio" name="fee" value=True required> Paid
+              <input type="radio" name="fee" value=False > Unpaid
+            <br><br>
+        <button type="submit">Add Student</button>
+    </form>
+
+    <hr>
+
+    <h1>Student List</h1>
+
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Usn</th>
+            <th>Semester</th>
+            <th>Fee</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.name }}</td>
+            <td>{{ student.usn }}</td>
+            <td>{{ student.sem }}</td>
+            <td>{% if student.fee %}Paid{% else %}Unpaid{% endif %}</td>
+        </tr>
+
+        {% empty %}
+            <tr>
+                <td colspan="4">No students found.</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <br><br>
+
+    <a href="/delete_student/">Delete Unpaid Students</a>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Enter Details</h1>
+
+    <br>
+
+    <form action="/display/" method="post">
+        {% csrf_token %}
+        Name : <input type="text" name="name" required>
+        <br><br>
+        Age :  <input type="text" name="age" required>
+        <br><br>
+        Email : <input type="Email" name="email" required>
+        <br><br>
+        Phone : <input type="text" name="phone" required>
+        <br><br>
+        Address : <textarea name="address" required></textarea>
+        <br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
